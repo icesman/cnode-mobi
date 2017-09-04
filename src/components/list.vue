@@ -1,0 +1,96 @@
+<template>
+	<div>
+		<navbar></navbar>
+		<topic :tList="list"></topic>
+		<ButtonCom v-on:increase="next" v-on:decrease="pre" v-on:setPage="jump" v-bind:parentNum="param.page"></ButtonCom>
+		<pagefooter></pagefooter>
+	</div>
+</template>
+
+<style>
+a:visited {
+	color: #9f9494;
+}
+img {
+	display: inline-block;
+	width: auto;
+	max-width: 100%;
+	overflow: hidden;
+}
+</style>
+
+<script>
+import topic from 'components/topic'
+import ButtonCom from 'components/pagenav'
+import navbar from 'components/nav'
+import pagefooter from 'components/tab'
+
+export default{
+	name: 'list',
+	data () {
+		return {
+			list: [],
+			param: {
+				page: 1,
+				tab: '',
+				limit: 10,
+				mdrender: true
+			}
+		}
+	},
+	methods: {
+		getArticle (parameter) {
+		    this.$router.push({
+		    	name: 'article',
+		    	query: {
+		    		page: parameter.page
+		    	}
+		    })
+		},
+		next () {
+	      this.param.page+= 1;
+	      this.getArticle(this.param)
+
+	    },
+	    pre () {
+	      this.param.page-=1;
+	      this.getArticle(this.param)
+	    },
+	    jump (page) {
+	      this.param.page = page;
+	      this.getArticle(this.param)
+	    }
+	},
+	created () {
+		var that = this;
+		var tabType = this.$route.params.type ?  this.$route.params.type : 'all';
+		var page = +this.$route.query.page ? +this.$route.query.page : 1;
+		this.param = {page: page, tab: tabType, limit: 10, mdrender: true}
+		$.get('/api/topics', this.param, function(res){
+		      if(res.success){
+		        that.list = res.data;
+		      }
+		    })
+	},
+	components: {
+		topic,
+		ButtonCom,
+		navbar,
+		pagefooter
+	},
+	watch: {
+    '$route' (to, from) {
+    	var that = this;
+    	var page = +to.query.page;
+    	var tabType = to.params.type;
+    	this.param = { page: page, tab: tabType, limit: 10, mdrender: true };
+    	this.getArticle(this.param);
+    	$.get('/api/topics', this.param, function(res){
+		      if(res.success){
+		        that.list = res.data;
+		      }
+		    })
+    }
+  }
+}
+</script>

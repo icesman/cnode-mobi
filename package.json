@@ -1,0 +1,45 @@
+{
+  "name": "vue-multiple-pages-cnode",
+  "description": "A Vue2 starter",
+  "author": "281899906@qq.com",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "moment": "latest",
+    "vue": "latest",
+    "vue-router": "latest",
+    "vuex": "latest",
+    "ax-js": "latest",
+    "ax-struct-js": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-preset-es2015": "latest",
+    "cross-env": "latest",
+    "css-loader": "latest",
+    "cssnano": "latest",
+    "eslint": "latest",
+    "eslint-config-vue": "latest",
+    "eslint-plugin-vue": "latest",
+    "extract-text-webpack-plugin": "latest",
+    "file-loader": "latest",
+    "glob": "latest",
+    "html-loader": "latest",
+    "html-webpack-inline-source-plugin": "latest",
+    "html-webpack-plugin": "latest",
+    "lodash": "latest",
+    "postcss-cssnext": "latest",
+    "postcss-pxtorem": "latest",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "vue-loader": "latest",
+    "vue-template-compiler": "latest",
+    "webpack": "latest",
+    "webpack-dev-server": "latest"
+  }
+}
