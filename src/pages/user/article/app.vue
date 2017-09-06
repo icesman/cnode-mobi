@@ -22,19 +22,6 @@ export default {
     routerObj.params = this.$route.params;
     routerObj.query = this.$route.query;
     this.$router.push(routerObj);
-    // if(this.$route.name === null){
-    //   this.$router.push({
-    //       name: 'article',
-    //       query: {
-    //         page: 1
-    //       },
-    //       params: {
-    //         type: 'all'
-    //       }
-    //     })
-    // }else{
-
-    // }
   }
 }
 </script>
