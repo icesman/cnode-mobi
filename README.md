@@ -46,7 +46,7 @@ The Webapp is consisted of several components built on the single file component
 * 4、 打开浏览器，输入`http://localhost:8010/user/article.html`即可访问。
 
 目前依然存在的问题:
-* 1、公共模块打包的问题，如果拥有公共样式，应该怎样配置(目前使用的是webpack中自带的commonChunks默认配置，若该库不在node_modules中，将不会打包到vendor.css中)(已fixed,根据commonChunks的context来进行配置)；
+* 1、<del>公共模块打包的问题，如果拥有公共样式，应该怎样配置(目前使用的是webpack中自带的commonChunks默认配置，若该库不在node_modules中，将不会打包到vendor.css中)(已fixed,根据commonChunks的context来进行配置)；</del>
 * 2、因为偷懒，eslint其实并没有启用...；
 * 3、样式写得稍微有点过于随性，没有规整；
 * 4、下拉加载以及上拉刷新待添加，目前暂时只用了自己写的翻页组件进行加载；

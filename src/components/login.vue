@@ -37,6 +37,7 @@
 }
 .login-wrapper .login-error{
 	border: 1px solid #F44336;
+	color: #f44336;
 
 }
 
