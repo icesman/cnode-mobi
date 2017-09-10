@@ -25,9 +25,9 @@ The Webapp is consisted of several components built on the single file component
 * 4. if you want to build it into the production, run the command `npm run build` and all the things will generated into the folder `/dist`
 
 ## Todo
-* 1. the problem of Webpack CommonChunk Plugin, I have no idea how to put the personal css file into the common chunk.
+* 1. <del>the problem of Webpack CommonChunk Plugin, I have no idea how to put the personal css file into the common chunk.</del>
 * 2. the edit and reply function need to be added.
-* 3. need to re-design the router to fix the bug when post a new article or read an article from AbourMe or New Post;
+* 3. need to re-design the router to fix the bug when post a new article or read an article from AboutMe or New Post;
 
 
 
