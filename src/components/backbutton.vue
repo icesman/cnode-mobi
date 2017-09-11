@@ -14,7 +14,7 @@
 }	
 .back a:before{
     display: block;
-    border: 15px solid;
+    border: 12px solid;
     border-color: #fff #a9a8a8 #fff #fff;
     content: "";
     position: absolute;
@@ -24,7 +24,7 @@
 }
 .back a:after{
     display: block;
-    border: 15px solid;
+    border: 12px solid;
     border-color: transparent #fff transparent transparent;
     content: "";
     position: absolute;

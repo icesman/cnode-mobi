@@ -13,7 +13,7 @@
 			<div class="content base" v-html="article.content">
 			</div>
 		</div>
-		<div class="reply">
+		<div class="reply" v-if="article.replies.length > 0">
 			<div class="reply-wrapper">
 				<div class="reply-item base" v-for="item in article.replies">
 					<div class="author reply-author">
@@ -134,5 +134,14 @@ export default {
 			return this.$store.state.isLogin;
 		}
 	}
+	// beforeRouteLeave(to, from, next){
+	// 	if(this.isLogined){
+	// 		if(from.fullPath.indexOf('edit')>0 
+	// 			|| from.fullPath.indexOf('user')>0){
+	// 			this.$router.push({name: 'root', query:{page: 1}});
+	// 			next();
+	// 		};
+	// 	}
+	// }
 }
 </script>
