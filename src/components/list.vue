@@ -25,6 +25,9 @@ import ButtonCom from 'components/pagenav'
 import navbar from 'components/nav'
 import pagefooter from 'components/tab'
 
+import { mapState } from 'vuex'
+
+
 export default{
 	name: 'list',
 	data () {
@@ -70,7 +73,7 @@ export default{
 		      if(res.success){
 		        that.list = res.data;
 		      }
-		    })
+		    });
 	},
 	components: {
 		topic,
@@ -91,6 +94,12 @@ export default{
 		      }
 		    })
     }
+  },
+  computed: {
+  	...mapState({
+  		isLogin: state => state.isLogin,
+  		accessToken: state => state.accessToken
+  	}),
   }
 }
 </script>
