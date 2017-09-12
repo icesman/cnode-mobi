@@ -81,7 +81,8 @@ router.beforeEach((to, from, next) => {
     // if not, redirect to login page.
     if (!store.state.isLogin) {
       next({
-        name: 'login'
+        name: 'login',
+        query: {to: to.name}
       })
     } else {
       next()

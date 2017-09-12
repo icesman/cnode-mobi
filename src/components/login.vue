@@ -55,6 +55,7 @@ export default{
 	},
 	methods: {
 		toLogin() {
+			let toQuery = window.location.hash.split('=')[1];
 			let that = this;
 			let request = $.ajax({
 				type: 'POST',
@@ -64,7 +65,7 @@ export default{
 					that.$store.commit('login')
 					that.$store.commit('setAccessToken', {token: that.accessToken, loginName: res.loginname})
 					localStorage.setItem('accessToken', that.accessToken)
-					that.$router.go(-1)
+					that.$router.push({name: toQuery});
 				}
 			});
 
