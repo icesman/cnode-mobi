@@ -1,6 +1,6 @@
 <template>
 	<div class="back" @click="backToPre">
-		<a href="">
+		<a href="javascript:void(0)">
 			&nbsp;{{title}}
 		</a>
 	</div>

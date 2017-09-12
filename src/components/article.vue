@@ -134,14 +134,5 @@ export default {
 			return this.$store.state.isLogin;
 		}
 	}
-	// beforeRouteLeave(to, from, next){
-	// 	if(this.isLogined){
-	// 		if(from.fullPath.indexOf('edit')>0 
-	// 			|| from.fullPath.indexOf('user')>0){
-	// 			this.$router.push({name: 'root', query:{page: 1}});
-	// 			next();
-	// 		};
-	// 	}
-	// }
 }
 </script>

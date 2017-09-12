@@ -94,12 +94,6 @@ export default{
 		      }
 		    })
     }
-  },
-  computed: {
-  	...mapState({
-  		isLogin: state => state.isLogin,
-  		accessToken: state => state.accessToken
-  	}),
   }
 }
 </script>
