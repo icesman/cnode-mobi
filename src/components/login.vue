@@ -61,16 +61,16 @@ export default{
 				url: '/api/accesstoken',
 				data: {accesstoken: this.accessToken},
 				success: (res) => {
-					this.$store.commit('login')
-					this.$store.commit('setAccessToken', {token: this.accessToken, loginName: res.loginname})
-					localStorage.setItem('accessToken', this.accessToken)
+					this.$store.commit('login');
+					this.$store.commit('setAccessToken', {token: this.accessToken, loginName: res.loginname});
+					localStorage.setItem('accessToken', this.accessToken);
 					this.$router.push({name: toQuery});
 				}
 			});
 			request.fail(
 				(res) => {
 					if(res.status === 200){
-						this.$store.commit(login)
+						this.$store.commit(login);
 					}else{
 						this.msg = res.statusText;
 					}
@@ -80,7 +80,7 @@ export default{
 	},
 	computed:{
 		isDisabled : function(){
-			return this.accessToken.length > 0 ? false : true
+			return this.accessToken.length > 0 ? false : true;
 		}
 	},
 	components: {

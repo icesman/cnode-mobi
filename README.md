@@ -37,7 +37,7 @@ The Webapp is consisted of several components built on the single file component
 
 项目使用了jQuery，若不需要，可以在`/src/webpack.config.js`中将其注释，换成`axios`或其他ajax库。
 
-> 对于在run build之后，请求的路径不正确问题，可以将请求集合到一个文件中，使用`webpack`提供的`DefinePlugin`插件来定义一个公用的环境变量，来动态更换api路径。~~
+> 对于在run build之后，请求的路径不正确问题，可以将请求集合到一个文件中，使用`webpack`提供的`DefinePlugin`插件来定义一个公用的环境变量，来动态更换api路径。
 
 ## 运行项目
 * 1、 确保电脑安装有Node环境;
