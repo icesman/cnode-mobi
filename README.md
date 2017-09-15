@@ -1,4 +1,4 @@
-# vue-multiple-page-cnode
+# vue-mobi-cnode
 
 A multiple page demo based on Vue and Webpack, accessing data from the [API of CNode](https://cnodejs.org/api). And now it is only a SPA. 
 
@@ -35,9 +35,9 @@ The Webapp is consisted of several components built on the single file component
 -----
 一个多页面的vue项目，每个页面为一个模块，该模块为一个单页面应用。
 
-项目使用了vue-router，本身为后台管理项目，所以添加了jquery；
+项目使用了jQuery，若不需要，可以在`/src/webpack.config.js`中将其注释，换成`axios`或其他ajax库。
 
-若不需要，可以在`/src/webpack.config.js`中将其注释，换成`axios`或其他ajax库。
+> 对于在run build之后，请求的路径不正确问题，可以将请求集合到一个文件中，使用`webpack`提供的`DefinePlugin`插件来定义一个公用的环境变量，来动态更换api路径。~~
 
 ## 运行项目
 * 1、 确保电脑安装有Node环境;
