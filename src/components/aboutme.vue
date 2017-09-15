@@ -103,13 +103,13 @@ export default{
 		}
 	},
 	created(){
-		var that = this;
-		var userName = this.$store.state.loginName;
-		$.get('/api/user/' + userName, function(res){
+		let that = this;
+		let userName = this.$store.state.loginName;
+		$.get('/api/user/' + userName, (res) => {
 			if(res.success){
-				that.userInfo = res.data
+				this.userInfo = res.data
 			}
-		})
+		});
 	},
 	components: {
 		backbtn

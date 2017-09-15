@@ -80,18 +80,18 @@ export default{
 	methods: {
 		newPost(event) {
 			event.preventDefault();
-			var that = this;
 			$.post('/api/topics', {
 				title: this.title,
 				tab: this.tab,
 				content: this.content,
 				accesstoken: this.token
 			},
-			function(res){
+			(res) => {
 				if(res.success){
-					that.$router.push({name: 'detail', params: {id: res.topic_id}})
+					this.$router.push({name: 'detail', params: {id: res.topic_id}})
 				}
-			})
+			}
+			);
 		}
 	},
 	components: {

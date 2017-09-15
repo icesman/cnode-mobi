@@ -65,15 +65,14 @@ export default{
 	    }
 	},
 	created () {
-		var that = this;
-		var tabType = this.$route.params.type ?  this.$route.params.type : 'all';
-		var page = +this.$route.query.page ? +this.$route.query.page : 1;
+		let tabType = this.$route.params.type ?  this.$route.params.type : 'all';
+		let page = +this.$route.query.page ? +this.$route.query.page : 1;
 		this.param = {page: page, tab: tabType, limit: 10, mdrender: true}
-		$.get('/api/topics', this.param, function(res){
-		      if(res.success){
-		        that.list = res.data;
+		$.get('/api/topics', this.param, (res) => {
+			if(res.success){
+		        this.list = res.data;
 		      }
-		    });
+		});
 	},
 	components: {
 		topic,
@@ -83,16 +82,15 @@ export default{
 	},
 	watch: {
     '$route' (to, from) {
-    	var that = this;
-    	var page = +to.query.page;
-    	var tabType = to.params.type;
+    	let page = +to.query.page;
+    	let tabType = to.params.type;
     	this.param = { page: page, tab: tabType, limit: 10, mdrender: true };
     	this.getArticle(this.param);
-    	$.get('/api/topics', this.param, function(res){
-		      if(res.success){
-		        that.list = res.data;
+    	$.get('/api/topics', this.param, (res) => {
+    		if(res.success){
+		        this.list = res.data;
 		      }
-		    })
+    	})
     }
   }
 }

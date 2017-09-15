@@ -56,26 +56,26 @@ export default{
 	methods: {
 		toLogin() {
 			let toQuery = window.location.hash.split('=')[1];
-			let that = this;
 			let request = $.ajax({
 				type: 'POST',
 				url: '/api/accesstoken',
-				data: {accesstoken: that.accessToken},
-				success: function(res){
-					that.$store.commit('login')
-					that.$store.commit('setAccessToken', {token: that.accessToken, loginName: res.loginname})
-					localStorage.setItem('accessToken', that.accessToken)
-					that.$router.push({name: toQuery});
+				data: {accesstoken: this.accessToken},
+				success: (res) => {
+					this.$store.commit('login')
+					this.$store.commit('setAccessToken', {token: this.accessToken, loginName: res.loginname})
+					localStorage.setItem('accessToken', this.accessToken)
+					this.$router.push({name: toQuery});
 				}
 			});
-
-			request.fail(function(res){
-				if(res.status === 200){
-					that.$store.commit(login)
-				}else{
-					that.msg = res.statusText;
+			request.fail(
+				(res) => {
+					if(res.status === 200){
+						this.$store.commit(login)
+					}else{
+						this.msg = res.statusText;
+					}
 				}
-			});
+			);
 		}
 	},
 	computed:{

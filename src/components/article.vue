@@ -118,8 +118,8 @@ export default {
 		}
 	},
 	created () {
-		var articleId = this.$route.params.id;
-		var that = this;
+		let articleId = this.$route.params.id;
+		let that = this;
 		$.get('/api/topic/'+articleId, {mdrender: true}, function(res){
 			if(res.success){
 				that.article = res.data;
