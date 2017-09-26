@@ -80,6 +80,8 @@
 <script>
 import time from 'vfilters/datefilter'
 import backbtn from 'components/backbutton'
+import api from 'api/api'
+
 export default {
 	name: 'detail',
 	data () {
@@ -120,7 +122,7 @@ export default {
 	created () {
 		let articleId = this.$route.params.id;
 		let that = this;
-		$.get('/api/topic/'+articleId, {mdrender: true}, function(res){
+		$.get(api.api + '/topic/'+articleId, {mdrender: true}, function(res){
 			if(res.success){
 				that.article = res.data;
 			}

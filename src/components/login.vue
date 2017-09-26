@@ -44,6 +44,8 @@
 </style>
 <script>
 import backbtn from 'components/backbutton'
+import api from 'api/api'
+
 export default{
 	name: 'login',
 	data() {
@@ -58,7 +60,7 @@ export default{
 			let toQuery = window.location.hash.split('=')[1];
 			let request = $.ajax({
 				type: 'POST',
-				url: '/api/accesstoken',
+				url: api.api+'/accesstoken',
 				data: {accesstoken: this.accessToken},
 				success: (res) => {
 					this.$store.commit('login');

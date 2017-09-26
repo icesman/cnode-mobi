@@ -24,6 +24,7 @@ import topic from 'components/topic'
 import ButtonCom from 'components/pagenav'
 import navbar from 'components/nav'
 import pagefooter from 'components/tab'
+import api from 'api/api'
 
 import { mapState } from 'vuex'
 
@@ -68,7 +69,7 @@ export default{
 		let tabType = this.$route.params.type ?  this.$route.params.type : 'all';
 		let page = +this.$route.query.page ? +this.$route.query.page : 1;
 		this.param = {page: page, tab: tabType, limit: 10, mdrender: true}
-		$.get('/api/topics', this.param, (res) => {
+		$.get(api.api + '/topics', this.param, (res) => {
 			if(res.success){
 		        this.list = res.data;
 		      }
@@ -86,7 +87,7 @@ export default{
     	let tabType = to.params.type;
     	this.param = { page: page, tab: tabType, limit: 10, mdrender: true };
     	this.getArticle(this.param);
-    	$.get('/api/topics', this.param, (res) => {
+    	$.get(api.api + '/topics', this.param, (res) => {
     		if(res.success){
 		        this.list = res.data;
 		      }

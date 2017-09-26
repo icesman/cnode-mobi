@@ -19,7 +19,7 @@
   "devDependencies": {
     "babel-core": "latest",
     "babel-loader": "latest",
-    "babel-preset-stage-3": "latest",
+    "babel-preset-latest": "latest",
     "cross-env": "latest",
     "css-loader": "latest",
     "cssnano": "latest",

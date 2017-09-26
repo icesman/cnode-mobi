@@ -68,6 +68,7 @@ select#tab{
 </style>
 <script>
 import backbtn from 'components/backbutton'
+import api from 'api/api'
 export default{
 	name: 'editor',
 	data() {
@@ -80,7 +81,7 @@ export default{
 	methods: {
 		newPost(event) {
 			event.preventDefault();
-			$.post('/api/topics', {
+			$.post(api.api + '/topics', {
 				title: this.title,
 				tab: this.tab,
 				content: this.content,

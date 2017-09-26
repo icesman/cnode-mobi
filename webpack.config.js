@@ -11,6 +11,9 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
 const entries = {}
 const chunks = []
+
+const ISDEV = process.env.NODE_ENV !== 'production'
+
 glob.sync('./src/pages/**/*.js').forEach(path => {
   const chunk = path.split('./src/pages/')[1].split('.js')[0]
   entries[chunk] = path
@@ -32,7 +35,8 @@ const config = {
       components: join(__dirname, '/src/components'),
       root: join(__dirname, 'node_modules'),
       vfilters: join(__dirname, '/src/filters'),
-      struct: join(__dirname, 'node_modules/ax-struct-js/dist/struct.min')
+      struct: join(__dirname, 'node_modules/ax-struct-js/dist/struct.min'),
+      api: join(__dirname, '/src/apis')
     }
   },
   module: {
@@ -120,13 +124,18 @@ const config = {
       $: "jquery",
       JQuery: "jquery",
       moment: "moment",
-      'window.jQuery': 'jquery',
-      _: 'lodash'
+      'window.jQuery': 'jquery'
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new HtmlInlineSourcePlugin(),
 
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+
+    new webpack.DefinePlugin({
+      isDev: ISDEV
+    }),
+
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   //dev environment config
   devServer: {

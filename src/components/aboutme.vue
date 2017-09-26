@@ -88,6 +88,8 @@ a:visited {
 <script>
 import time from 'vfilters/datefilter'
 import backbtn from 'components/backbutton'
+import api from 'api/api'
+
 export default{
 	name: 'aboutme',
 	data(){
@@ -105,7 +107,7 @@ export default{
 	created(){
 		let that = this;
 		let userName = this.$store.state.loginName;
-		$.get('/api/user/' + userName, (res) => {
+		$.get(api.api + '/user/' + userName, (res) => {
 			if(res.success){
 				this.userInfo = res.data
 			}
