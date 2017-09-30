@@ -105,13 +105,15 @@ export default{
 		}
 	},
 	created(){
-		let that = this;
 		let userName = this.$store.state.loginName;
-		$.get(api.api + '/user/' + userName, (res) => {
-			if(res.success){
-				this.userInfo = res.data
+		axios.get(api.api + '/user/' + userName)
+		  .then(
+		  	res => {
+			  if (res.data.success){
+			  	this.userInfo = res.data.data;
+			  }
 			}
-		});
+		  );
 	},
 	components: {
 		backbtn

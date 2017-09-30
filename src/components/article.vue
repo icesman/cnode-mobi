@@ -121,12 +121,15 @@ export default {
 	},
 	created () {
 		let articleId = this.$route.params.id;
-		let that = this;
-		$.get(api.api + '/topic/'+articleId, {mdrender: true}, function(res){
-			if(res.success){
-				that.article = res.data;
+
+		axios.get(api.api + '/topic/'+articleId,
+		  {params:{ mdrender: true}})
+		  .then( (res) => {
+		  	if(res.data.success){
+		  		this.article = res.data.data;
 			}
-		})
+		  }
+		  );
 	},
 	components: {
 		backbtn

@@ -13,8 +13,7 @@
     "vue": "latest",
     "vue-router": "latest",
     "vuex": "latest",
-    "ax-js": "latest",
-    "ax-struct-js": "latest"
+    "axios": "latest"
   },
   "devDependencies": {
     "babel-core": "latest",

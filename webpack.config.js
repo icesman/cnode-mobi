@@ -1,12 +1,12 @@
 const { join, resolve } = require('path')
 const webpack = require('webpack')
 const glob = require('glob')
-//生成自动引用js文件的HTML
+//  生成自动引用js文件的HTML
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 
-//打包公共模块 commonChunk
+//  打包公共模块 commonChunk
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 
 const entries = {}
@@ -20,7 +20,6 @@ glob.sync('./src/pages/**/*.js').forEach(path => {
   chunks.push(chunk)
 })
 
-
 const config = {
   entry: entries,
   output: {
@@ -29,18 +28,17 @@ const config = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.vue'],//解析文件的拓展名
+    extensions: ['.js', '.vue'], // 解析文件的拓展名
     alias: {
       assets: join(__dirname, '/src/assets'),
       components: join(__dirname, '/src/components'),
       root: join(__dirname, 'node_modules'),
       vfilters: join(__dirname, '/src/filters'),
-      struct: join(__dirname, 'node_modules/ax-struct-js/dist/struct.min'),
       api: join(__dirname, '/src/apis')
     }
   },
   module: {
-    //loader,处理文件转换
+    // loader,处理文件转换
     rules: [
       {
         test: /\.vue$/,
@@ -103,44 +101,44 @@ const config = {
   },
   plugins: [
     /*
-    打包公用模块，在每个js文件中都有import的才打包
-    minChunks为公共模块最少引用次数
-    */
+		打包公用模块，在每个js文件中都有import的才打包
+		minChunks为公共模块最少引用次数
+		*/
     new CommonsChunkPlugin({
       name: 'vendors',
       filename: 'assets/js/vendors.[hash:8].js',
       chunks: chunks,
-      minChunks: function(module){
-        return (module.context && ( module.context.indexOf("node_modules") !== -1)); 
+      minChunks: function (module) {
+        return (module.context && (module.context.indexOf('node_modules') !== -1))
       }
     }),
-    //css文件打包
+    // css文件打包
     new ExtractTextPlugin({
-      filename: 'assets/css/[name].[hash:8].css',
+      filename: 'assets/css/[name].[chunkhash].css',
       allChunks: true
     }),
 
     new webpack.ProvidePlugin({
-      $: "jquery",
-      JQuery: "jquery",
-      moment: "moment",
-      'window.jQuery': 'jquery'
+      // $: 'jquery',
+      // jQuery: 'jquery',
+      // 'window.jQuery': 'jquery',
+      axios: 'axios'
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+	
+	  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
     new HtmlInlineSourcePlugin(),
 
     new webpack.HotModuleReplacementPlugin(),
 
     new webpack.DefinePlugin({
       isDev: ISDEV
-    }),
-
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    })
   ],
-  //dev environment config
+  // dev environment config
   devServer: {
     hot: true,
-    host: "localhost",
+    host: 'localhost',
     port: 8010,
     historyApiFallback: false,
     noInfo: true,
