@@ -1,3 +1,3 @@
 rm -rf ./dist
 
-npm run build
+yarn run build
