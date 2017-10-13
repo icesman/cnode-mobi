@@ -26,6 +26,8 @@
 	height: 30px;
 	font-size: 12px;
 	padding: 10px 10px;
+	color: #a7a7a7;
+	font-weight: 700;
 }
 .invalid-footer{
 	text-align: center;
@@ -44,6 +46,7 @@
 	z-index: 999;
 	background-color: #fff;
 	border: 1px solid #eee;
+	background: linear-gradient(1turn,#f1f1f1,#fff);
 }
 </style>
 

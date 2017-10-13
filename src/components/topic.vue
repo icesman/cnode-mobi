@@ -42,7 +42,7 @@
 <style scoped>
   .cell{
     padding: 10px 10px;
-    border-bottom: 15px solid #eee;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,.2);
     min-height: 80px;
     position: relative;
   }
