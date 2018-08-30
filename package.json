@@ -16,8 +16,8 @@
     "axios": "latest"
   },
   "devDependencies": {
-    "babel-core": "latest",
-    "babel-loader": "latest",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-latest": "latest",
     "cross-env": "latest",
     "css-loader": "latest",
@@ -28,17 +28,20 @@
     "extract-text-webpack-plugin": "latest",
     "file-loader": "latest",
     "glob": "latest",
-    "html-loader": "latest",
-    "html-webpack-inline-source-plugin": "latest",
-    "html-webpack-plugin": "latest",
+    "html-loader": "^0.5.1",
+    "html-webpack-inline-source-plugin": "^0.0.9",
+    "html-webpack-plugin": "^2.30.1",
     "lodash": "latest",
-    "postcss-cssnext": "latest",
-    "postcss-pxtorem": "latest",
-    "style-loader": "latest",
-    "url-loader": "latest",
-    "vue-loader": "latest",
-    "vue-template-compiler": "latest",
-    "webpack": "latest",
-    "webpack-dev-server": "latest"
+    "postcss-cssnext": "^3.0.2",
+    "postcss-pxtorem": "^4.0.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "vue-loader": "^13.0.4",
+    "vue-template-compiler": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "peerDependencies": {
+    "babel/core": "^7.0.0"
   }
 }
